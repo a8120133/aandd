@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 function show(array) {
     var html = '';
     html = html + '<table border="1">';
@@ -29,4 +30,31 @@ function createRandomNumbers20(array, n){ //0から20;
         var num = Math.floor(Math.random()*21);
         array.push(num);
     }
+=======
+function show(array) {
+    var html = '';
+    html = html + '<table border="1">';
+    html = html + '<tr>';
+    for (var i = 0; i < array.length; i++) {
+        html = html + '<td>' + array[i] + '</td>';
+    }
+    html = html + '</tr>';
+    html = html + '</table>';
+    //document.getElementById('res').innerHTML = html;
+    document.getElementById('res').insertAdjacentHTML('beforeend', html);
+}
+
+function createSequentialNumbers(array, n){
+    for (var i = 1; i < n+1; i++) {
+        array.push(i);
+    }
+    
+}
+
+function createRandomNumbers(array, n){
+    for (var i = 1; i < n+1; i++) {
+        var x = Math.floor(Math.random()*100);
+        array.push(x);
+    }
+>>>>>>> a235c8e58f36871f600608c1877aecf6d1206b72
 }

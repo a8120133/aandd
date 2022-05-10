@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 
 <html>
@@ -25,4 +26,51 @@
     <p id="res"></p>
 </body>
 
+=======
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <script type="text/javascript" src="../aandd.js"></script>
+    <script type="text/javascript" src="../jquery.min.js"></script>
+
+    <script>
+        function runButtonPressed() {
+            var numbers = [];
+            var z = createSequentialNumbers(numbers, 10);
+            var tmp = numbers[1]
+            numbers[1] = numbers[3]
+            numbers[3] = tmp
+            show(numbers);//prac2-1 10個の順数（１，２，３．．．の数列）を生成し，２番目と４番目を入れ替える
+
+            var numbers = [];
+            var z = createSequentialNumbers(numbers, 10);
+            for (var i = 1; i < 21; i++) {
+                var n = Math.floor(Math.random()*10)
+                var m = Math.floor(Math.random()*10)
+                var tmp = numbers[n]
+                numbers[n] = numbers[m]
+                numbers[m] = tmp
+                show(numbers);
+            }
+            
+            
+            //prac2-2 10個の順数を生成し，n番目とm番目を入れ替える
+            //(nとmは乱数にて決定する)
+            //prac2-3 prac2-2を20回繰り返す（シャッフルプログラムの完成）
+        }
+    </script>
+
+</head>
+
+<body>
+    <h1>prac2</h1>
+    <button onclick="runButtonPressed()">run!</button>
+    <p id="res"></p>
+</body>
+
+>>>>>>> a235c8e58f36871f600608c1877aecf6d1206b72
 </html>
