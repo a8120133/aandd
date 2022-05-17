@@ -11,8 +11,65 @@
     <script>
         function runButtonPressed() {
             var numbers = [];
-            createOrderedRandomNumbers(numbers, 20);
+            createOrderedRandomNumbers(numbers, 10);
             show(numbers);
+            //リニアリサーチで検索
+            var banchi_1= 0;
+            for (var j = 0; j < numbers.length; j++) {
+                if(numbers[j] == 10){
+                    banchi_1 = j;
+                    break;
+                }
+            }
+            if(banchi_1 == 0){
+                show('見つかりませんでした')
+            }else{
+                show(banchi_1 + '番地です')
+            }
+
+            //バイナリサーチで検索
+            // var banchi_2= 0;
+            // var memory = 0;
+            // var testing_number = 20;
+            // for (var k = 1; k <= 4; k++) {
+            //     if (numbers[Math.floor((numbers.length)/ (2))] == testing_number){
+            //         banchi_2 = (numbers.length)/ 2
+            //         break;
+            //     }else if(numbers[Math.floor((numbers.length)/ 2)] > testing_number){
+            //         numbers = numbers.slice(0, Math.floor((numbers.length)/ (2))-1)
+            //         show(numbers)
+            //     }else if(numbers[Math.floor((numbers.length)/ (2))] < testing_number){
+            //         memory += Math.floor((numbers.length)/ (2))
+            //         numbers = numbers.slice(Math.floor((numbers.length)/ (2))+1 , numbers.length)
+            //         show(numbers)
+            //     }
+            // }
+        
+            var testing_number = 10;
+            var banchi_2;
+            var lower = 0;
+            var upper = numbers.length - 1;
+            var lower_1;
+            var upper_1;
+            for (var k = 1; k <= 4; k++) {
+                banchi_2 = 0;
+                if (numbers[Math.floor((lower + upper) / 2)] == testing_number){
+                    banchi_2 = Math.floor((lower + upper) / 2);
+                    break;
+                }else if(numbers[Math.floor((lower + upper) / 2)] > testing_number){
+                    upper_1 = Math.floor(lower + upper) / 2;
+                    upper = upper_1
+                }else if(numbers[Math.floor((lower + upper) / 2)] < testing_number){
+                    lower_1 = Math.floor(lower + upper) / 2;
+                    lower = lower_1
+                }
+            }
+              
+            if(banchi_2 == 0){
+                show('見つかりませんでした')
+            }else{
+                show(banchi_2 + '番地です')
+            }
         }
 
         //この関数を，aaandd.jsに加えてください．
@@ -48,6 +105,9 @@
                 document.getElementById('res').insertAdjacentHTML('beforeend', string);
             }
         }
+        
+            
+
     </script>
 
 </head>
