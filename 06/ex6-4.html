@@ -22,34 +22,35 @@
         });
 
         function runButtonPressed() {
-            var noun = selectone(nouns);
-            show(noun);
-            var verb = selectone(verbs);
-            show(verb);
-            var text = noun + verb;
-            show(text);
+            var kaibun = 0
+            for (var j = 0; j < 1000000; j++) {
+                var noun = selectone(nouns);
+                //show(noun);
+                var verb = selectone(verbs);
+                //show(verb);
+                var text = noun + verb;
+                //show(text);
 
-            var chars = text.split('');
-            show(chars);
-            var text1 = chars;
-            var text2 = [];
-            var end;
-            var length = text1.length;
-            for (var i = 0; i < length; i++) {
-                end = text1.pop();
-                text2.push(end);
-                //text1.pop();
+                var chars = text.split('');
+                //show(chars);
+                //var text1 = chars;
+                var text2 = [];
+                var end;
+                var length = chars.length;
+                for (var i = 0; i < length; i++) {
+                    end = chars.pop();
+                    text2.push(end);
+                    //text1.pop();
+                }
+                //show(text2);
+                var text3 = text2.join('');
+                //show(text3);
+                if(text == text3){
+                    kaibun += 1;
+                    show(text);
+                }
             }
-            show(text2);
-            var text3 = text2.join('');
-            show(text3);
-            var comment;
-            if(text == text3){
-                comment = '回文です';
-            }else{
-                comment = '回文ではありません';
-            }
-            show(comment);
+            console.log('回文は' + kaibun + '個です');
         }
 
         function selectone(array) {
